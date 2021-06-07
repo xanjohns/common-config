@@ -12,22 +12,36 @@ The end product of your work will be a standardizaton of the symbiflow github re
 
 ---
 
-This repository will hold the following items.
+This repository will hold the following items:
 
-* [ ]  Stuff around style formatting including;
-  * [ ]  `.editorconfig` file
-  * [ ]  Copyright / license checking tools (plus Travis CI support for checking them)
-  * [ ]  Auto-formatting tools - `clang-format`, `yapf`, etc (plus Travis CI support for checking them)
-* [ ]  Documentation around policies
-  * [ ]  Code of conduct
-  * [ ]  Contribution guide
-  * [ ]  Issue templates
-  * [ ]  Common replies to things like missing DCO and stuff
-  * [ ]  etc
-* [ ]  Documentation building and publishing scripts
-  * [ ]  The Sphinx documentation generation
-  * [ ]  ReadTheDocs publishing
-* [ ]  Useful infrastructure / CI scripts
-  * [ ]  Tools for handling the complexity of git submodules
-  * [ ]  Tools for getting and setting up environments using conda (handled by make-env)
-  * [ ]  etc
+* [ ] Stuff around style formatting including;
+  * [ ] `.editorconfig` file 
+    * [ ] Fully implemented
+  * [x] Copyright / license
+    * [ ] Fully implemented
+  * [ ]  Auto-formatting tools - `clang-format`, `yapf`, `verible`, `mjson`
+    * [ ] Fully implemented
+* [ ] Documentation around policies
+  * [ ] Code of conduct
+    * [ ] Fully implemented
+  * [ ] Contribution guide
+    * [ ] Fully implemented
+  * [ ] Issue Templates
+    * [ ] Fully implemented
+  * [ ] Pull Request Templates
+    * [ ] Fully implemented
+  * [ ] Common replies to things like missing DCO and stuff
+    * [ ] Fully Implemented
+  * [ ] etc
+* [ ] Documentation building and publishing scripts
+  * [ ] The Sphinx documentation generation
+    * [ ] Fully Implemented
+  * [ ] ReadTheDocs publishing
+    * [ ] Fully Implemented
+* [ ] Useful infrastructure / CI scripts
+  * [ ] Tools for handling the complexity of git submodules
+    * [ ] Fully Implemented
+  * [x] Tools for getting and setting up environments using conda (handled by make-env)
+  * [ ] etc
+
+Full implementation includes setting up github actions to check them and bots to merge them into projects where this is a submodule.
