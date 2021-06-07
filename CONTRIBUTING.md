@@ -79,3 +79,5 @@ following command to add signoffs to all commits between you and the upstream
 master:
 
     git rebase --signoff upstream/master
+
+>>>>>>> Added CODE_OF_CONDUCT and CONTRIBUTING
