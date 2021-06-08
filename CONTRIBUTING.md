@@ -163,10 +163,3 @@ master:
 
     git rebase --signoff upstream/master
 
-
-----
-
-This file is generated from [README.md](README.md), please edit that file then
-run the `./.github/update-contributing.py`.
-
->>>>>>> ca888032ea1b5a321c579e4150cbe58e81d2cd2a
