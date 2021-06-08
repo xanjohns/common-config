@@ -80,4 +80,3 @@ master:
 
     git rebase --signoff upstream/master
 
->>>>>>> Added CODE_OF_CONDUCT and CONTRIBUTING
