@@ -79,10 +79,3 @@ following command to add signoffs to all commits between you and the upstream
 master:
 
     git rebase --signoff upstream/master
-
-
-----
-
-This file is generated from [README.md](README.md), please edit that file then
-run the `./.github/update-contributing.py`.
-
