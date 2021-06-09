@@ -22,9 +22,9 @@ This repository will hold the following items:
   * [ ]  Auto-formatting tools - `clang-format`, `yapf`, `verible`, `mjson`
     * [ ] Fully implemented
 * [ ] Documentation around policies
-  * [ ] Code of conduct
+  * [x] Code of conduct
     * [ ] Fully implemented
-  * [ ] Contribution guide
+  * [x] Contribution guide
     * [ ] Fully implemented
   * [ ] Issue Templates
     * [ ] Fully implemented
