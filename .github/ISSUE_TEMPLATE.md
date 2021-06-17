@@ -1,6 +1,6 @@
 ---
 name: Generic Issue Template
-about: A standard issue template to use in all Symbiflow repositories.
+about: A standard issue template to use in all Symbiflow repositories. Adapted from [*Open Source Templates*](https://www.talater.com/open-source-templates/#/) by Tal Ater. 
 ---
 <!--- Provide a general summary of the issue in the Title above -->
 
