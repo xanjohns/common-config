@@ -1,7 +1,7 @@
 ---
-name: Bug Report Issue Template
+name: Bug Report
 title: Bug Report
-about: A standard issue template to use in all Symbiflow repositories. Adapted from [*Open Source Templates*](https://www.talater.com/open-source-templates/#/) by Tal Ater. 
+about: A standard issue template to use in all Symbiflow repositories. Adapted from <a href="https://www.talater.com/open-source-templates/#/">Open Source Templates</a> by Tal Ater. 
 labels: bug
 ---
 <!--- Provide a general summary of the issue in the Title above -->
