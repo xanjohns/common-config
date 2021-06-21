@@ -1,6 +1,6 @@
 ---
-name: New Feature/Improvement Template
-about: A standard issue template to use in all Symbiflow repositories. Adapted from [*Open Source Templates*](https://www.talater.com/open-source-templates/#/) by Tal Ater. 
+name: New Feature/Improvement
+about: A standard issue template to use in all Symbiflow repositories. Adapted from Open Source Templates by Tal Ater. 
 labels: enhancement
 ---
 <!--- Provide a general summary of the issue in the Title above -->
