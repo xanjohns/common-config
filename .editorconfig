@@ -1,19 +1,27 @@
 # Editor config file, see http://editorconfig.org/
 root = true
 
-#are there any other file formats that requrie tabs?
 [*]
 charset = utf-8
 indent_style = space
-end_of_line = lf #verified v/sv
+end_of_line = lf
 insert_final_newline = true
-trim_trailing_whitespace = true #validated c
+trim_trailing_whitespace = true
 
-[*.{h,cpp,tcl,v,sv,html}]
-indent_size = 2 #validated
+[{*.{h,cpp,cc,tcl,v,sv,html,sh,cmake},CMakeLists.txt}]
+indent_size = 2
 
 [*.py]
 indent_size = 4
 
 [Makefile]
 indent_style = tab
+
+# Ignore third_party directory
+[/third_party/**]
+charset = unset
+indent_style = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_size = unset
