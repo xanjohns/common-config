@@ -1,5 +1,5 @@
-         int 3;
+int 3;
 
 
 
-  string "hello world";
+string "hello world";
