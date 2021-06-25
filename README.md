@@ -13,7 +13,7 @@ To learn more, see [Issue 51](https://github.com/SymbiFlow/ideas/issues/51) on t
 This repository will hold the following items:
 
 * [ ] Stuff around style formatting including;
-  * [ ] `.editorconfig` file 
+  * [x] `.editorconfig` file 
     * [ ] Fully implemented
   * [x] Copyright / license
     * [ ] Fully implemented
@@ -24,9 +24,9 @@ This repository will hold the following items:
     * [ ] Fully implemented
   * [x] Contribution guide
     * [ ] Fully implemented
-  * [ ] Issue Templates
+  * [x] Issue Templates
     * [ ] Fully implemented
-  * [ ] Pull Request Templates
+  * [x] Pull Request Templates
     * [ ] Fully implemented
   * [ ] Common replies to things like missing DCO and stuff
     * [ ] Fully Implemented
