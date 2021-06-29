@@ -43,3 +43,31 @@ This repository will hold the following items:
   * [ ] etc
 
 Full implementation includes setting up github actions to check them and bots to merge them into projects where this is a submodule.
+
+## docs
+
+Contains required community files for all repositories.
+
+## .github
+
+This directory contains templates that will be used automatically when opening a new PR/Issue.
+
+Note: "Bug" and "Feature" Issue templates will also apply the appropriate labels upon creation.
+
+## formatter-files
+
+This directory contains the necessary configuration files for various formatters.
+
+Formatters will be run automatically with each pull request via [Restyled.io](https://restyled.io/)
+
+Currently configured formatters include:
+- clang-format
+- yapf
+- prettier-json
+
+Looking to include:
+- verible
+
+## progress
+
+This directory contains a collection of files from various Symbiflow repositories used to derive the master files in this repository.
