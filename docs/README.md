@@ -64,8 +64,6 @@ Currently configured formatters include:
 - clang-format
 - yapf
 - prettier-json
-
-Looking to include:
 - verible
 
 ## progress

@@ -49,3 +49,4 @@ restylers:
   - clang-format
   - yapf
   - prettier-json
+  - verible
