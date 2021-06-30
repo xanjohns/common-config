@@ -17,8 +17,8 @@ This repository will hold the following items:
     * [ ] Fully implemented
   * [x] Copyright / license
     * [ ] Fully implemented
-  * [ ]  Auto-formatting tools - `clang-format`, `yapf`, `verible`, `mjson`
-    * [ ] Fully implemented
+  * [x]  Auto-formatting tools - `clang-format`, `yapf`, `verible`, `mjson`
+    * [x] Fully implemented
 * [ ] Documentation around policies
   * [x] Code of conduct
     * [ ] Fully implemented
