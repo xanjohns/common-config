@@ -16,7 +16,7 @@ This repository will hold the following items:
   * [x] `.editorconfig` file 
     * [ ] Fully implemented
   * [x] Copyright / license
-    * [ ] Fully implemented
+    * [x] Fully implemented
   * [x]  Auto-formatting tools - `clang-format`, `yapf`, `verible`, `mjson`
     * [x] Fully implemented
 * [ ] Documentation around policies
