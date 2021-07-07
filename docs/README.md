@@ -44,6 +44,8 @@ This repository will hold the following items:
 
 Full implementation includes setting up github actions to check them and bots to merge them into projects where this is a submodule.
 
+---
+
 ## .github
 
 This directory contains templates that will be used automatically when opening a new PR/Issue.
@@ -52,7 +54,9 @@ Note: "Bug" and "Feature" Issue templates will also apply the appropriate labels
 
 ## docs
 
-Contains required community files for all repositories.
+Contains required community files for all repositories (`CODE_OF_CONDUCT.md` and `CONTRIBUTING.md`)
+
+Note: `LICENSE` also fits this description but is held in the main directory to conform to community guidelines.
 
 ## formatter-files
 
