@@ -1,10 +1,10 @@
 # common-config
 
-This is a preparatory repository for the creation of Symbiflow's common-config repo.
+This is a preparatory repository for the creation of SymbiFlow's common-config repo.
 
-Symbiflow aims to produce a completely open source FPGA design toolchain.  They have a large presence on github where they have many repositories (73 to be exact), where each repository roughly corresponds to one project.  One of the challenges is with such a large effort is imposing some order and uniformity on the various repositories so that they all use the same code formatting, copyright licensing, documentation style, etc.  One of the open issues they have relates to creating a single common configuration github repository which is then included into every other repository to provide the desired uniformity.  This project focuses on creating such a common configuration repository and modifying all other repositories to use it.
+SymbiFlow aims to produce a completely open source FPGA design toolchain. The organization has a large presence on github with many repositories, where each repository roughly corresponds to one project.  One of the challenges with such a large effort is imposing some order and uniformity on the various repositories so that they all use the same code formatting, copyright licensing, documentation style, etc.  One of the open issues on `symbiflow-ideas` relates to creating a single common configuration github repository which is then included into every other repository to provide the desired uniformity.  This project focuses on creating such a common configuration repository and modifying all other repositories to use it.
 
-To learn more, see [Issue 51](https://github.com/SymbiFlow/ideas/issues/51) on the Symbiflow Ideas repository.
+To learn more, see [Issue 51](https://github.com/SymbiFlow/ideas/issues/51) on the SymbiFlow Ideas repository.
 
 ## Table of Contents
 [Progress](#progress)
@@ -24,37 +24,28 @@ To learn more, see [Issue 51](https://github.com/SymbiFlow/ideas/issues/51) on t
 
 This repository will hold the following items:
 
-* [ ] Stuff around style formatting including;
+* [x] Items dealing with style formatting including;
   * [x] `.editorconfig` file 
-    * [ ] Fully implemented
   * [x] Copyright / license
-    * [x] Fully implemented
+    * [x] CI support
   * [x]  Auto-formatting tools - `clang-format`, `yapf`, `verible`, `mjson`
-    * [x] Fully implemented
+    * [x] CI support
 * [ ] Documentation around policies
   * [x] Code of conduct
-    * [ ] Fully implemented
   * [x] Contribution guide
-    * [ ] Fully implemented
   * [x] Issue Templates
-    * [ ] Fully implemented
   * [x] Pull Request Templates
-    * [ ] Fully implemented
   * [ ] Common replies to things like missing DCO and stuff
-    * [ ] Fully Implemented
-  * [ ] etc
+    * [ ] CI support
 * [ ] Documentation building and publishing scripts
   * [ ] The Sphinx documentation generation
-    * [ ] Fully Implemented
+    * [ ] CI support
   * [ ] ReadTheDocs publishing
-    * [ ] Fully Implemented
+    * [ ] CI support
 * [ ] Useful infrastructure / CI scripts
   * [ ] Tools for handling the complexity of git submodules
-    * [ ] Fully Implemented
+    * [ ] CI support
   * [x] Tools for getting and setting up environments using conda (handled by make-env)
-  * [ ] etc
-
-Full implementation includes setting up github actions to check them and bots to merge them into projects where this is a submodule.
 
 ---
 
