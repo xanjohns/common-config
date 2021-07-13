@@ -6,6 +6,8 @@ SymbiFlow aims to produce a completely open source FPGA design toolchain. The or
 
 To learn more, see [Issue 51](https://github.com/SymbiFlow/ideas/issues/51) on the SymbiFlow Ideas repository.
 
+---
+
 ## Table of Contents
 [Progress](#progress)
 
@@ -59,13 +61,19 @@ Code formatting will be handled by [Restyled.io](restyled.io). Upon pull request
 
 [EditorConfig](https://editorconfig.org/) has also been included to maintain consistency across editors and IDE's.
 
+---
+
 ## <a name="copyright"/> Copyright/License
 
 [SymbiFlow/actions/checks@main](https://github.com/SymbiFlow/actions/tree/main/checks) is used with Github Actions to check Third-Party license files, SPDX Identifiers, and basic Python header config.
 
+---
+
 ## <a name="community-files"/> Community Files
 
 [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md) and [`CONTRIBUTING.md`](./CONTRIBUTING.md) files are included in the `docs` directory, while the [`LICENSE`](../LICENSE) file is included in the root directory. This is done to make sure that Github recognizes the files in the `Insights/Community` tab.
+
+---
 
 ### Templates
 
@@ -75,5 +83,7 @@ Currently included templates include:
 * [Feature issue template](../.github/ISSUE_TEMPLATE/ISSUE_TEMPLATE-FEATURE.md)
 
 These will be used automatically upon PR/Issue creation. Proper labels will also be applied.
+
+---
 
 ## <a name="sphinx"/> Sphinx Setup
