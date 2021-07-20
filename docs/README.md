@@ -89,6 +89,21 @@ These will be used automatically upon PR/Issue creation. Proper labels will also
 ---
 
 ## <a name="sphinx"/> Sphinx Setup
+A basic Sphinx setup is provided in the `docs` directory. It includes configuration files and various tools for adding a set of common extensions and building documention in a conda environment. The actual content of the documention must be added on a per-repository basis.
+
+To use and build documentation for your repository:
+
+1. Add a file named `index.rst` to the `docs` directory, along with any other `.md` or `.rst` documentation files you would like to include (see [Getting Started](https://www.sphinx-doc.org/en/master/usage/quickstart.html)).
+2. With `docs/` as the working directory, run `make livehtml` to build documentation.
+
+Notable features already included in the setup:
+* Conda environment setup to contain dependencies and extensions
+* Sphinx-SymbiFlow theme
+* Links to original GitHub repository
+* Support for markdown and restructured text files
+* Support for NumPy and Google style docstrings
+* Ability to link to a document outside of the docs repository with symbolic links
+* Directives for pull requests, issues, HDL diagrams, thumbnail images, tabs 
 
 ## <a name="integration"/> Integration With Other Repositories 
 

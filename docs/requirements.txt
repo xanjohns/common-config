@@ -1,0 +1,29 @@
+sphinx>=3.5
+#Enables use of markdown files
+m2r2
+#Enables .. thumbnail directive [symbiflow-arch-defs]
+sphinxcontrib_images
+#Enables linking to issues/PRs/users
+sphinx-issues
+#SymbiFlow Theme
+git+https://github.com/SymbiFlow/sphinx_symbiflow_theme.git#egg=sphinx_symbiflow_theme
+#Napoleon comes bundled with sphinx
+#Needed for import git
+gitpython
+# Module diagrams
+symbolator
+# HDL diagrams using Yosys + netlistsvg
+git+https://github.com/SymbiFlow/sphinxcontrib-hdl-diagrams.git@master#egg=sphinxcontrib-hdl-diagrams
+#Live reload in browser
+sphinx-autobuild
+sphinx-tabs
+
+sphinx-jinja==1.1.1
+breathe
+docutils
+nmigen
+yowasp-yosys
+packaging
+# XML utils
+git+https://github.com/SymbiFlow/vtr-xml-utils.git#egg=vtr-xml-utils
+

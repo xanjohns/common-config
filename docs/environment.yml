@@ -1,0 +1,23 @@
+name: make-env
+channels:
+- defaults
+- conda-forge
+- symbiflow
+dependencies:
+  - cmake
+  - pip
+  - python=3.7
+  - swig
+  # ReadTheDoc dependencies
+  - mock
+  - pillow
+  - sphinx
+  # sphinxcontrib_hdl_diagrams dependencies
+  - symbiflow-yosys
+  - netlistsvg
+  # symbolator dependencies
+  # - pygobject
+  # - cairo
+  # - pango
+  - pip:
+    - -r file:requirements.txt
