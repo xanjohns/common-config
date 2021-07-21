@@ -19,6 +19,8 @@ To learn more, see [Issue 51](https://github.com/SymbiFlow/ideas/issues/51) on t
 
 [Sphinx Setup](#sphinx)
 
+[Integrating With Other Repositories](#integration)
+
 ---
 
 ### <a name="progress"/> Progress
@@ -87,3 +89,9 @@ These will be used automatically upon PR/Issue creation. Proper labels will also
 ---
 
 ## <a name="sphinx"/> Sphinx Setup
+
+## <a name="integration"/> Integration With Other Repositories 
+
+Adding `common-config` as a subtree to all other repositories will be handled with the `merger.sh` and `merger_help.py` scripts.
+
+Updates to `common-config` files should be made to this repository, then pulled in to other repositories with `git subtree pull`.
