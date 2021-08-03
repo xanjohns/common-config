@@ -1,5 +1,4 @@
 #!/bin/bash
-<<<<<<< HEAD
 #
 # Copyright (C) 2020  The SymbiFlow Authors.
 #
@@ -8,10 +7,6 @@
 # https://opensource.org/licenses/ISC
 #
 # SPDX-License-Identifier:	ISC
-=======
-
-
->>>>>>> a7384b0... Move merger files
 
 mkdir tmp-clone
 cd tmp-clone
