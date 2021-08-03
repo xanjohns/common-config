@@ -1,0 +1,30 @@
+# Copyright (C) 2020  The SymbiFlow Authors.
+#
+# Use of this source code is governed by a ISC-style
+# license that can be found in the LICENSE file or at
+# https://opensource.org/licenses/ISC
+# SPDX-License-Identifier:  ISC
+
+name: make-env
+channels:
+- defaults
+- conda-forge
+- symbiflow
+dependencies:
+  - cmake
+  - pip
+  - python=3.7
+  - swig
+  # ReadTheDoc dependencies
+  - mock
+  - pillow
+  - sphinx
+  # sphinxcontrib_hdl_diagrams dependencies
+  - symbiflow-yosys
+  - netlistsvg
+  # symbolator dependencies
+  # - pygobject
+  # - cairo
+  # - pango
+  - pip:
+    - -r file:requirements.txt
