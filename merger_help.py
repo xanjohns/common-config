@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
@@ -9,8 +8,6 @@
 # https://opensource.org/licenses/ISC
 #
 # SPDX-License-Identifier:	ISC
-=======
->>>>>>> a7384b0... Move merger files
 import sys;
 import json;
 import os;
