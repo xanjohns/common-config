@@ -80,3 +80,11 @@ master:
 
     git rebase --signoff upstream/master
 
+### Updating Common-Config
+
+The [symbiflow-common-config](https://github.com/SymbiFlow/symbiflow-common-config) repository contains files that should remain consitent across SymbiFlow owned repositories (editor/code formatter files, community health files, Sphinx setup, etc)
+
+Should you desire to update files that belong to this repository, you should submit a pull request to the repository linked above.
+
+To pull in new upates from `symbiflow-common-config` to any repository that contains it, run the `update_subtree.sh` script, which will pull in new changes and move new files to their proper location.
+
