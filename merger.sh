@@ -30,7 +30,7 @@ for dir in ./* ; do
     echo "Adding Subtree"
     cd ${dir##*/}
     git checkout -b add-common-config
-    git subtree add --prefix third_party/common-config https://github.com/SymbiFlow/common-config.git main --squash
+    git subtree add --prefix third_party/common-config https://github.com/SymbiFlow/symbiflow-common-config.git main --squash
 
     #Make necessary directories
     shopt -s dotglob
