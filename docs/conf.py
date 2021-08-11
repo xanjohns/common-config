@@ -42,6 +42,8 @@ author = 'SymbiFlow Team'
 
 needs_sphinx = '3.0'
 
+#TESTLINE
+
 extensions = [
      'm2r2',
      'sphinxcontrib.images',
@@ -56,6 +58,8 @@ extensions = [
      'sphinx_tabs.tabs',
     #  'symbolator_sphinx',
      'sphinxcontrib.jinja',
+     'testfromcommon',
+     '2ndtestfromcommon',
 ]
 
 
