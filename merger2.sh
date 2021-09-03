@@ -46,7 +46,7 @@ for dir in ./* ; do
     for file in $files
     do
       [[ -f ${file##*common-config/} ]] && mv ${file##*common-config/} "orig/${file##*/}-orig"
-      ln $file .${file##*common-config}
+      ln -sr $file .${file##*common-config}
     done
 
     cd ..
