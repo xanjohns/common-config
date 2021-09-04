@@ -27,6 +27,9 @@ for dir in ./* ; do
   if [ -d "$dir" ]; then
     dir=${dir%*/}
 
+    LOG_MESSAGE="## Modifications made by common-config"
+    FILES_ADDED="### The following files were added:"
+
     echo "Adding Subtree"
     cd ${dir##*/}
     git checkout -b add-common-config
@@ -34,26 +37,44 @@ for dir in ./* ; do
 
     #Make necessary directories
     shopt -s dotglob
-    dirs=`find -type d -path "*third_party/common-config*" -not -path "./.git/*" -not -path "./.git"`
+    shopt -s extglob
+    dirs=`find -type d -path "*third_party/common-config*" -not -path "*assets*"`
     for dir in $dirs
     do
       mkdir ${dir##*common-config/}
     done
-    mkdir orig
+    mkdir third_part/common-config/orig 
 
     #Copy old files and replace with common-config
-    files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -path "./.git/*"`
+    files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*"`
+
     for file in $files
     do
-      [[ -f ${file##*common-config/} ]] && cp ${file##*common-config/} "orig/${file##*/}-orig"
-      filedir="$(dirname $file)"
-      mv $file .${filedir##*common-config}
+      if [[ -f ${file##*common-config/} ]]; then
+        cp ${file##*common-config/} "third_party/common-config/orig/${file##*/}-orig"
+        FILES_ADDED="${FILES_ADDED}
+[${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/}) *"
+      else
+      FILES_ADDED="${FILES_ADDED}
+[${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
+      fi
+        filedir="$(dirname $file)"
+        mv $file .${filedir##*common-config}
     done
 
+    #Remove all files in common-config execpt orig  directory
+    cd third_party/common-config
+    rm -r !(orig*)
+    cd ../..
+
+    LOG_MESSAGE="${LOG_MESSAGE}
+${FILES_ADDED}
+#### a '*' indicates the file already exists and a backup was created at /third_party/common-config/orig"
+
     git add .
-    git commit -m "Add common-config repo as subtree"
-    git push
-    gh pr create --repo Symbiflow/${dir##*/} --title "Add common-config repo as subtree" --body "Add common-config repo as subtree under third_party directory. Files are also copied to their required locations in docs, .github, etc."
+    git commit -m "Add common-config repo as subtree" --signoff
+    git push origin add-common-config
+    gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
     cd ..
   fi
 done
