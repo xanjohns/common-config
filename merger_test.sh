@@ -20,8 +20,6 @@ fi
 
 
 echo "Clone repos"
-# curl -s https://api.github.com/orgs/SymbiFlow/repos?per_page=200 | python ../merger_help.py
-# gh repo fork https://github.com/SymbiFlow/prjxray --clone
 gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
 
 echo "Repos cloned"
@@ -68,6 +66,7 @@ for dir in ./* ; do
     rm -r !(orig*)
     cd ../..
 
+    #Concatenate log message to use in PR description
     LOG_MESSAGE="${LOG_MESSAGE}
 ${FILES_ADDED}
 #### a '*' indicates the file already exists and a backup was created at /third_party/common-config/orig"
