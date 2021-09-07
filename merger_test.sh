@@ -20,7 +20,8 @@ fi
 
 
 echo "Clone repos"
-gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
+#gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
+gh repo fork https://github.com/xanjohns/upgraded-dollop --clone
 
 echo "Repos cloned"
 for dir in ./* ; do
@@ -34,6 +35,8 @@ for dir in ./* ; do
     cd ${dir##*/}
     git checkout -b add-common-config
     git subtree add --prefix third_party/common-config https://github.com/SymbiFlow/symbiflow-common-config.git main --squash
+
+    git rebase --signoff HEAD~2
 
     #Make necessary directories
     shopt -s dotglob
