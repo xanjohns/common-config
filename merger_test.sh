@@ -20,8 +20,8 @@ fi
 
 
 echo "Clone repos"
-#gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
-gh repo fork https://github.com/xanjohns/upgraded-dollop --clone
+# gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
+gh repo fork https://github.com/ryancj14/practice-upstream --clone
 
 echo "Repos cloned"
 for dir in ./* ; do
@@ -36,7 +36,7 @@ for dir in ./* ; do
     git checkout -b add-common-config
     git subtree add --prefix third_party/common-config https://github.com/SymbiFlow/symbiflow-common-config.git main --squash
 
-    git rebase --signoff HEAD~2
+    # git rebase --signoff HEAD~2
 
     #Make necessary directories
     shopt -s dotglob
@@ -46,10 +46,10 @@ for dir in ./* ; do
     do
       mkdir ${dir_new##*common-config/}
     done
-    mkdir third_party/common-config/orig
+    mkdir -p third_party/common-config/orig
 
     #Copy old files and replace with common-config
-    files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*"`
+    files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*" -not -name "LICENSE"`
     for file in $files
     do
       if [[ -f ${file##*common-config/} ]]; then
@@ -66,7 +66,7 @@ for dir in ./* ; do
 
     #Remove all files in common-config execpt orig  directory
     cd third_party/common-config
-    rm -r !(orig*)
+    rm -rf !(orig*)
     cd ../..
 
     #Concatenate log message to use in PR description
@@ -79,6 +79,7 @@ ${FILES_ADDED}
     git commit -m "Add common-config repo as subtree" --signoff
     git push origin add-common-config
     gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
+    # gh pr create --repo ryancj14/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
     cd ..
   fi
 done

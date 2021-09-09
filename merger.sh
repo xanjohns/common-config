@@ -43,10 +43,10 @@ for dir in ./* ; do
     do
       mkdir ${dir##*common-config/}
     done
-    mkdir third_part/common-config/orig 
+    mkdir third_part/common-config/orig
 
     #Copy old files and replace with common-config
-    files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*"`
+    files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*" -not -name "LICENSE"`
 
     for file in $files
     do
