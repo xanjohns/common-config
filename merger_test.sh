@@ -21,7 +21,7 @@ fi
 
 echo "Clone repos"
 # gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
-gh repo fork https://github.com/ryancj14/practice-upstream --clone
+gh repo fork https://github.com/YosysHQ/yosys.git --clone
 
 echo "Repos cloned"
 for dir in ./* ; do
@@ -36,7 +36,8 @@ for dir in ./* ; do
     git checkout -b add-common-config
     git subtree add --prefix third_party/common-config https://github.com/SymbiFlow/symbiflow-common-config.git main --squash
 
-    # git rebase --signoff HEAD~2
+    git reset --soft HEAD~1 && git commit -m "Add common-config as a subtree" 
+    git commit --amend --signoff
 
     #Make necessary directories
     shopt -s dotglob
@@ -76,9 +77,9 @@ ${FILES_ADDED}
 
 
     git add .
-    git commit -m "Add common-config repo as subtree" --signoff
+    git commit -m "Move file to correct locations" --signoff
     git push origin add-common-config
-    gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
+    #gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
     # gh pr create --repo ryancj14/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
     cd ..
   fi
