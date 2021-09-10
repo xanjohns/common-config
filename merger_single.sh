@@ -8,22 +8,15 @@
 #
 # SPDX-License-Identifier:	ISC
 
+# Create temporary directory to store cloned repos
 mkdir tmp-clone
 cd tmp-clone
 
-read -p "This will create many pull requests. Are you sure you want to continue? (y/n) "  -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-  kill -INT $$
-fi
+read -p "Enter the url of the repository that common-config will be merged into:"
+gh repo fork $REPLY --clone
+read -p "Enter GitHub username (used for pull request creation):" userID
 
-
-echo "Clone repos"
-# gh repo fork https://github.com/SymbiFlow/prjxray-bram-patch --clone
-gh repo fork https://github.com/YosysHQ/yosys.git --clone
-
-echo "Repos cloned"
+echo "Repo cloned"
 for dir in ./* ; do
   if [ -d "$dir" ]; then
     dir=${dir%*/}
@@ -36,8 +29,9 @@ for dir in ./* ; do
     git checkout -b add-common-config
     git subtree add --prefix third_party/common-config https://github.com/SymbiFlow/symbiflow-common-config.git main --squash
 
-    git reset --soft HEAD~1 && git commit -m "Add common-config as a subtree" 
-    git commit --amend --signoff
+    # Merge two commits that come from subtree and add DCO signoff
+    git reset --soft HEAD~1 && git commit -m "Add common-config as a subtree"
+    git commit --amend --no-edit --signoff
 
     #Make necessary directories
     shopt -s dotglob
@@ -75,12 +69,10 @@ for dir in ./* ; do
 ${FILES_ADDED}
 #### a '*' indicates the file already exists and a backup was created at /third_party/common-config/orig"
 
-
     git add .
-    git commit -m "Move file to correct locations" --signoff
+    git commit -m "Move files to correct locations" --signoff
     git push origin add-common-config
-    #gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
-    # gh pr create --repo ryancj14/${dir##*/} --title "Add common-config repo as subtree" --body "${LOG_MESSAGE}"
+    gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --head $userID:add-common-config --body "${LOG_MESSAGE}"
     cd ..
   fi
 done
