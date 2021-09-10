@@ -41,14 +41,12 @@ for dir in ./* ; do
     do
       mkdir ${dir_new##*common-config/}
     done
-    mkdir -p third_party/common-config/orig
 
     #Copy old files and replace with common-config
     files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*" -not -name "LICENSE"`
     for file in $files
     do
       if [[ -f ${file##*common-config/} ]]; then
-        cp ${file##*common-config/} "third_party/common-config/orig/${file##*/}-orig"
         FILES_ADDED="${FILES_ADDED}
 [${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/}) *"
       else
