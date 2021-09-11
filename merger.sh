@@ -12,8 +12,21 @@
 mkdir tmp-clone
 cd tmp-clone
 
-read -p "Enter the url of the repository that common-config will be merged into:"
-gh repo fork $REPLY --clone
+read -p "Enter the url of the repository that common-config will be merged into (Leave blank to clone all SymbiFlow repositories):" userURL
+if [ $userURL ]; then
+  gh repo fork $userURL --clone
+else
+  read -p "This will create many pull requests. Are you sure you want to continue? (y/n) "  -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]
+  then
+  kill -INT $$
+  fi
+  echo "Clone repos"
+  curl -s https://api.github.com/orgs/SymbiFlow/repos?per_page=200 | python ../merger_help.py
+fi
+
+
 read -p "Enter GitHub username (used for pull request creation):" userID
 
 echo "Repo cloned"
