@@ -12,6 +12,7 @@
 mkdir tmp-clone
 cd tmp-clone
 
+read -p "Enter GitHub username (used for pull request creation):" userID
 read -p "Enter the url of the repository that common-config will be merged into (Leave blank to clone all SymbiFlow repositories):" userURL
 if [ $userURL ]; then
   gh repo fork $userURL --clone
@@ -27,7 +28,6 @@ else
 fi
 
 
-read -p "Enter GitHub username (used for pull request creation):" userID
 
 echo "Repo cloned"
 for dir in ./* ; do
@@ -60,14 +60,18 @@ for dir in ./* ; do
     for file in $files
     do
       if [[ -f ${file##*common-config/} ]]; then
+        if ! cmp -s $file ${file##*common-config/}; then
         FILES_ADDED="${FILES_ADDED}
 [${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/}) *"
+        filedir="$(dirname $file)"
+        mv $file .${filedir##*common-config}
+        fi
       else
       FILES_ADDED="${FILES_ADDED}
 [${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
+      filedir="$(dirname $file)"
+      mv $file .${filedir##*common-config}
       fi
-        filedir="$(dirname $file)"
-        mv $file .${filedir##*common-config}
     done
 
     #Remove all files in common-config execpt orig  directory
@@ -78,7 +82,7 @@ for dir in ./* ; do
     #Concatenate log message to use in PR description
     LOG_MESSAGE="${LOG_MESSAGE}
 ${FILES_ADDED}
-#### a '*' indicates the file already exists and a backup was created at /third_party/common-config/orig"
+#### a '*' indicates the file already existed and was updated/replaced"
 
     git add .
     git commit -m "Move files to correct locations" --signoff
