@@ -68,8 +68,10 @@ for dir in ./* ; do
 
     #Copy old files and replace with common-config
     files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*" -not -name "LICENSE"`
+    warning_files=""
     for file in $files
     do
+      warning_files=${warning_files}`find -type f -iname ${file##*/} -not -path "*third_party/common-config*" -not -path "${file##*common-config/}"`
       FILES_ADDED="${FILES_ADDED}
 [${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
       if [[ -f ${file##*common-config/} ]]; then
@@ -94,10 +96,13 @@ for dir in ./* ; do
     LOG_MESSAGE="${LOG_MESSAGE}
 ${FILES_ADDED}"
 
-    git add .
-    git commit -m "Move files to correct locations" --signoff
-    git push origin add-common-config
-    gh pr create --repo SymbiFlow/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
+    echo $warning_files
+    echo $LOG_MESSAGE
+    #git add .
+    #git commit -m "Move files to correct locations" --signoff
+    #git push origin add-common-config
+    # gh pr create --repo SymbiFlow/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
+    #gh pr create --repo xanjohns/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
     cd ..
   fi
 done
