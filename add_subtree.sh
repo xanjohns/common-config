@@ -14,6 +14,7 @@ cd tmp-clone
 
 read -p "Enter GitHub username (used for pull request creation):" userID
 read -p "Enter the url of the repository that common-config will be merged into (Leave blank to clone all SymbiFlow repositories):" userURL
+read -p "Enter the name of the feature set to be added/updated:" FEATURE_SET
 if [ $userURL ]; then
   gh repo fork $userURL --clone
 else
@@ -24,7 +25,7 @@ else
   kill -INT $$
   fi
   echo "Clone repos"
-  python <<EOF 
+  python <<EOF
 import urllib.request
 import json;
 import os;
@@ -45,7 +46,7 @@ for dir in ./* ; do
     dir=${dir%*/}
 
     LOG_MESSAGE="## Modifications made by common-config"
-    FILES_ADDED="### The following files were added:"
+    FILES_ADDED="### Files now present from common-config:"
 
     echo "Adding Subtree"
     cd ${dir##*/}
@@ -69,16 +70,16 @@ for dir in ./* ; do
     files=`find -type f -path "*third_party/common-config*" -not -name "merger*" -not -name "README*" -not -name "implementation*" -not -path "*assets*" -not -name "LICENSE"`
     for file in $files
     do
+      FILES_ADDED="${FILES_ADDED}
+[${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
       if [[ -f ${file##*common-config/} ]]; then
         if ! cmp -s $file ${file##*common-config/}; then
-        FILES_ADDED="${FILES_ADDED}
-[${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/}) *"
+        FILES_ADDED="${FILES_ADDED}(Updated)"
         filedir="$(dirname $file)"
         mv $file .${filedir##*common-config}
         fi
       else
-      FILES_ADDED="${FILES_ADDED}
-[${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
+      FILES_ADDED="${FILES_ADDED}(New)"
       filedir="$(dirname $file)"
       mv $file .${filedir##*common-config}
       fi
@@ -91,13 +92,12 @@ for dir in ./* ; do
 
     #Concatenate log message to use in PR description
     LOG_MESSAGE="${LOG_MESSAGE}
-${FILES_ADDED}
-#### a '*' indicates the file already existed and was updated/replaced"
+${FILES_ADDED}"
 
     git add .
     git commit -m "Move files to correct locations" --signoff
     git push origin add-common-config
-    gh pr create --repo SymbiFlow/${dir##*/} --title "Add common-config repo as subtree" --head $userID:add-common-config --body "${LOG_MESSAGE}"
+    gh pr create --repo SymbiFlow/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
     cd ..
   fi
 done
