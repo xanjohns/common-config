@@ -71,7 +71,8 @@ for dir in ./* ; do
     warning_files=""
     for file in $files
     do
-      warning_files=${warning_files}`find -type f -iname ${file##*/} -not -path "*third_party/common-config*" -not -path "${file##*common-config/}"`
+      warning_files="${warning_files}
+Warning: A similarly named file was found at $(find -type f -iname ${file##*/} -not -path "*third_party*" -not -path "${file##*common-config/}") Please resolve manually"
       FILES_ADDED="${FILES_ADDED}
 [${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
       if [[ -f ${file##*common-config/} ]]; then
@@ -94,15 +95,15 @@ for dir in ./* ; do
 
     #Concatenate log message to use in PR description
     LOG_MESSAGE="${LOG_MESSAGE}
-${FILES_ADDED}"
+${FILES_ADDED}
+${warning_files}"
 
-    echo $warning_files
     echo $LOG_MESSAGE
-    #git add .
-    #git commit -m "Move files to correct locations" --signoff
-    #git push origin add-common-config
+    git add .
+    git commit -m "Move files to correct locations" --signoff
+    git push origin add-common-config
     # gh pr create --repo SymbiFlow/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
-    #gh pr create --repo xanjohns/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
+    gh pr create --repo xanjohns/${dir##*/} --title "Common-config: [${FEATURE_SET}]" --head $userID:add-common-config --body "${LOG_MESSAGE}"
     cd ..
   fi
 done
