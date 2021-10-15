@@ -16,5 +16,5 @@ jobs:
           FILES: |
             CODE_OF_CONDUCT.md
             CONTRIBUTING.md
-          TOKEN: ${{ secrets.ACTIONS }}
+          TOKEN: ${{ github.token }}
           PULL_REQUEST: 'true'
