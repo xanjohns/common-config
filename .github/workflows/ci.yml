@@ -17,4 +17,4 @@ jobs:
             CODE_OF_CONDUCT.md
             CONTRIBUTING.md
           TOKEN: ${{ secrets.ACTIONS }}
-          PULL_REQUEST_BRANCH_NAME: common-config-branch
+          PULL_REQUEST: 'true'
