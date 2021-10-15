@@ -71,8 +71,7 @@ for dir in ./* ; do
     warning_files=""
     for file in $files
     do
-      warning_files="${warning_files}
-Warning: A similarly named file was found at $(find -type f -iname ${file##*/} -not -path "*third_party*" -not -path "${file##*common-config/}") Please resolve manually"
+      warning_files="${warning_files} $(find -type f -iname ${file##*/} -not -path "*third_party*" -not -path "${file##*common-config/}")"
       FILES_ADDED="${FILES_ADDED}
 [${file##*/}](https://github.com/symbiflow/symbiflow-common-config/blob/main/${file##*common-config/})"
       if [[ -f ${file##*common-config/} ]]; then
@@ -93,10 +92,17 @@ Warning: A similarly named file was found at $(find -type f -iname ${file##*/} -
     rm -rf !(orig*)
     cd ../..
 
+    WARNING_MESSAGE=""
+    for file in $warning_files
+    do
+      WARNING_MESSAGE="${WARNING_MESSAGE}
+Warning: A similarly named file was found at [${file#.}](https://github.com/xanjohns/${dir##*/}/blob/master/${file#.})"
+    done
+
     #Concatenate log message to use in PR description
     LOG_MESSAGE="${LOG_MESSAGE}
 ${FILES_ADDED}
-${warning_files}"
+${WARNING_MESSAGE}"
 
     echo $LOG_MESSAGE
     git add .
