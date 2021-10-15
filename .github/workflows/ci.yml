@@ -17,5 +17,4 @@ jobs:
             CODE_OF_CONDUCT.md
             CONTRIBUTING.md
           TOKEN: ${{ github.token }}
-          PULL_REQUEST: 'true'
           PULL_REQUEST_BRANCH_NAME: 'common-config-branch'
