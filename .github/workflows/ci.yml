@@ -1,0 +1,20 @@
+name: File Sync
+
+on: [push, workflow_dispatch]
+
+jobs:
+  file_sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetching Local Repository
+        uses: actions/checkout@v2
+      - name: File Sync
+        uses: kbrashears5/github-action-file-sync@v2.2.0
+        with:
+          REPOSITORIES: |
+            xanjohns/upgraded-dollop@master
+          FILES: |
+            CODE_OF_CONDUCT.md
+            CONTRIBUTING.md
+          TOKEN: ${{ secrets.ACTIONS }}
+          PULL_REQUEST_BRANCH_NAME: common-config-branch
