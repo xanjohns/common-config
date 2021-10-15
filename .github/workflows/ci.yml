@@ -18,4 +18,3 @@ jobs:
             CONTRIBUTING.md
           TOKEN: ${{ secrets.ACTIONS }}
           PULL_REQUEST: 'true'
-          PULL_REQUEST_BRANCH_NAME: 'common-config-branch'
