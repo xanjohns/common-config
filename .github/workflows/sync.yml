@@ -1,6 +1,5 @@
 name: Sync Files
 on: [push]
-  workflow_dispatch:
 jobs:
   sync:
     runs-on: ubuntu-latest
