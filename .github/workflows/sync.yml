@@ -10,5 +10,4 @@ jobs:
         uses: BetaHuhn/repo-file-sync-action@v1.14.0
         with:
           GH_PAT: ${{ secrets.GH_PAT }}
-          COMMIT_BODY: "This is the custom message"
           
