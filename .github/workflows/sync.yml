@@ -6,9 +6,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - uses: tibdex/github-app-token@v1.0.2
+        id: generate-token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Run GitHub File Sync
         uses: BetaHuhn/repo-file-sync-action@v1.14.0
         with:
-          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
+          GH_INSTALLATION_TOKEN: ${{ steps.generate-token.outputs.token }}
           COMMIT_BODY: "Signed-off-by: common-config[bot]"
           
