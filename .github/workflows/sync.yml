@@ -17,4 +17,6 @@ jobs:
         with:
           GH_INSTALLATION_TOKEN: ${{ steps.generate-token.outputs.token }}
           COMMIT_BODY: "Signed-off-by: common-config[bot]"
+          GIT_EMAIL: <>
+          GIT_USERNAME: Common-config Bot
           
