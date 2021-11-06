@@ -14,4 +14,5 @@ jobs:
           COMMIT_BODY: "Signed-off-by: common-config[bot]"
           GIT_EMAIL: <>
           GIT_USERNAME: Common-config Bot
+          NEW_HEAD: https://google.com
           
