@@ -12,7 +12,5 @@ jobs:
         with:
           GH_PAT: ${{ secrets.GH_PAT }}
           COMMIT_BODY: "Signed-off-by: common-config[bot]"
-          GIT_EMAIL: xanjohns@gmail.com
-          GIT_USERNAME: xanjohns
           NEW_HEAD: github.com/xanjohns/practice-upstream
           
