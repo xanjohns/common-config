@@ -12,5 +12,4 @@ jobs:
         with:
           GH_PAT: ${{ secrets.GH_PAT }}
           COMMIT_BODY: "Signed-off-by: common-config[bot]"
-          FORK: xanjohns
           
