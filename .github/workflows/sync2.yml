@@ -8,8 +8,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run GitHub File Sync
-        uses: BetaHuhn/repo-file-sync-action@v1
+        uses: xanjohns/repo-action-file-sync@fork-feature
         with:
           GH_PAT: ${{ secrets.GH_PAT }}
           COMMIT_BODY: "Signed-off-by: common-config[bot]"
+          FORK: xanjohns
           
