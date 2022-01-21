@@ -1,5 +1,5 @@
 group:
-  - repos: |
+  - repos:
       ryancj14/practice-upstream
       ryancj14/practice-sub-tree
     files:
