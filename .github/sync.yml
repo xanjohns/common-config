@@ -1,8 +1,8 @@
-ryancj14/practice-upstream:
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - docs/
-ryancj14/practice-sub-tree:
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - docs/
+group:
+  - repos: |
+      ryancj14/practice-upstream
+      ryancj14/practice-sub-tree
+    files:
+      - CODE_OF_CONDUCT.md
+      - CONTRIBUTING.md
+      - docs/
