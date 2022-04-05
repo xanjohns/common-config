@@ -3,6 +3,6 @@ group:
       - ryancj14/practice-upstream
       - ryancj14/practice-sub-tree
     files:
-      - CODE_OF_CONDUCT.md
+      - source: CODE_OF_CONDUCT.md
+        dest: CODE_OF_CONDUCT-ref.md
       - CONTRIBUTING.md
-      - docs/
